@@ -7,15 +7,24 @@
     box-sizing: border-box;
 }
 
+/*Color palette*/
+:root{
+    --primary-color: #1a2d42;
+    --secondary-color: #2e4156;
+    --tertiary-color: #aab7b7;
+    --complementary-color: #c0c8ca ;
+    --another-blue: #d4d8dd;;
+}
+
 body{
     -webkit-app-region: drag;
-
+    background-color: var(--another-blue);
 }
 
 header{
     width: 100vw;
     height: 100vh;
-    background-color: rgb(112,71,235);
+    background-color: var(--secondary-color);
     height: 100px;
     display: flex;
     justify-content: center;
@@ -33,4 +42,27 @@ header img{
 h1{
     color: #fff;
     font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+h2{
+    color: var(--primary-color);
+    font-weight: bold;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    margin-top: 2rem;
+}
+
+main{
+    width: 100vw;
+}
+
+.container{
+    margin: 2rem 2rem 0;
+}
+
+.card-routine{
+    background-color: var(--tertiary-color);
+    width: 300px;
+    text-align: center;
+    border-radius: 8px;
 }

@@ -1,7 +1,7 @@
 const {app, BrowserWindow} = require("electron");
 const path = require("path");
 
-//
+//To run electron-reload
 if(!app.isPackaged){
     require("electron-reload")(__dirname);
 }
