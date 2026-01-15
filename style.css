@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background: blue;
+    user-select: none;
+    -webkit-app-region: drag;
+}
+
+.app{
+    padding: 16px;
+}
+
+button, input, textarea, select{
+    -webkit-app-region: no-drag;
+    cursor: pointer;
+}
