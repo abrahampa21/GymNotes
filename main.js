@@ -1,10 +1,16 @@
 const {app, BrowserWindow} = require("electron");
-const path = require("path")
+const path = require("path");
 
+//
+if(!app.isPackaged){
+    require("electron-reload")(__dirname);
+}
+
+//Function to create the window and its properties
 function createWindow() {
     const window = new BrowserWindow({
-        width: 300,
-        height: 450,
+        width: 800,
+        height: 650,
         resizable: false,
         maximizable: false,
         fullscreenable: false,
