@@ -17,7 +17,6 @@
 }
 
 body{
-    -webkit-app-region: drag;
     background-color: var(--another-blue);
 }
 
@@ -31,6 +30,8 @@ header{
     align-items: center;
     gap: 1rem;
     box-shadow:0px 4px 6px rgba(0,0,0,0.7);
+    -webkit-app-region: drag;
+
 }
 
 header img{
@@ -48,8 +49,12 @@ h2{
     color: var(--primary-color);
     font-weight: bold;
     text-align: center;
-    font-family: "Raleway", sans-serif;
     margin-top: 2rem;
+}
+
+h2, h3, h4{
+    font-family: "Raleway", sans-serif;
+
 }
 
 main{
@@ -57,7 +62,11 @@ main{
 }
 
 .container{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2,1fr);
     margin: 2rem 2rem 0;
+    gap: 2rem;
 }
 
 .card-routine{
@@ -65,4 +74,20 @@ main{
     width: 300px;
     text-align: center;
     border-radius: 8px;
+    padding: 8px;
+}
+
+.exercise{
+    display: flex;
+    align-items: center;
+}
+
+.btn-add{
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 14px;
+    cursor: pointer;
+    margin-top: 1rem;
 }
