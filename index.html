@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -25,7 +25,7 @@
           <ul class="list-exercises">
             <div class="exercise">
               <img src="" alt="Squats" />
-              <p>Name of the exercise: <span class="name-exercise"></span></p>
+              <p>Name of the exercise:</p>
               <span class="weighs">50 kgs</span>
               <div class="reps-series">
                 <span class="series">3 x </span>
@@ -114,40 +114,40 @@
     <div class="modal" id="modal">
       <div class="modal-content">
         <span class="close" id="close-modal">&times;</span>
-        <h2>Add exercise</h2>
-        <form action="">
-          
-          <div class="exercise">
+        <form id="form-exercise">
+          <h2>Add exercise</h2>
+
+          <div class="name-exercise fields">
             <label for="">Exercise: </label>
-            <input type="text" name="" id="" required>
+            <input type="text" name="exercise" id="" required />
           </div>
 
-          <div class="img">
+          <div class="img fields">
             <label for="">Reference image (optional): </label>
-            <input type="file" name="" id="">
+            <input type="file" name="img" id="" />
           </div>
 
-          <div class="weight">
+          <div class="weight fields">
             <label for="">Weight: </label>
-            <input type="text" required>
+            <input type="text" required name="weight"/>
           </div>
 
-          <div class="sets">
-            <label for="">Sets: </label>
-            <input type="text" required>
+          <div class="sets-reps">
+            <div class="sets fields">
+              <label for="">Sets: </label>
+              <input type="text" name="sets" required />
+            </div>
+
+            <div class="reps fields">
+              <label for="">Reps:</label>
+              <input type="text" required name="reps"/>
+            </div>
           </div>
 
-          <div class="reps">
-            <label for="">Reps:</label>
-            <input type="text" required>
-          </div>
-
-          <button type="submit">Save</button>
+          <button type="submit" class="save">Save</button>
         </form>
       </div>
     </div>
-
-
 
     <script src="script.js"></script>
   </body>
