@@ -43,15 +43,17 @@ formExercise.addEventListener("submit", (e) => {
   };
 
   //Variables to add the new exercise
-  const divExercises = document.querySelectorAll("list-exercises");
-
   const divNewExercise = document.createElement("div");
   divNewExercise.classList.add("exercise");
+
+  const pen = document.createElement("i");
+  pen.classList.add("fa-solid","fa-pen");
 
   const exerciseInfo = document.createElement("p");
   exerciseInfo.textContent = `${dataExercises.name} ${dataExercises.weight} kg ${dataExercises.sets} x ${dataExercises.reps}`;
 
   divNewExercise.appendChild(exerciseInfo);
+  divNewExercise.appendChild(pen);
 
   if (currentListExercise) {
     currentListExercise.appendChild(divNewExercise);

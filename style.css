@@ -16,13 +16,14 @@
   --another-blue: #d4d8dd;
 }
 
+
 body {
+  min-height: 100vh;
   background-color: var(--another-blue);
 }
 
 header {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
   background-color: var(--secondary-color);
   height: 100px;
   display: flex;
@@ -58,7 +59,7 @@ h4 {
 }
 
 main {
-  width: 100vw;
+  width: 100%;
 }
 
 .container {
@@ -82,9 +83,17 @@ main {
     align-items: center;
 }
 
+.card-routine:last-child{
+  grid-column: 1/-1;
+  justify-self: center;
+}
+
 .exercise {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 7px; 
+  margin: 10px 0;
 }
 
 .btn-add {
@@ -94,7 +103,7 @@ main {
   border-radius: 5px;
   padding: 8px 14px;
   cursor: pointer;
-  margin-top: 1rem;
+  margin: 1rem 0 5px;
   transition: 0.2s ease-in-out;
   font-weight: bold;
   font-size: 12px;
@@ -167,6 +176,7 @@ main {
   border-radius: 7px;
   background-color: #d4d8dd;
   height: 30px;
+  padding-left: 6px;
 }
 
 .modal-content .save {
