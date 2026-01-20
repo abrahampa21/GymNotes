@@ -30,37 +30,73 @@ formExercise.addEventListener("submit", (e) => {
 
   const dataForm = new FormData(e.target);
 
-  //Capitalize the first letter in the name of exercise
-  const exerciseNameRaw = dataForm.get("exercise").trim();
-  const exerciseName =
-    exerciseNameRaw.charAt(0).toUpperCase() + exerciseNameRaw.slice(1);
+  //Capitalize the first letter
+  const name =
+    dataForm.get("exercise").trim().charAt(0).toUpperCase() +
+    dataForm.get("exercise").trim().slice(1);
 
-  const dataExercises = {
-    name: exerciseName,
-    weight: dataForm.get("weight"),
-    sets: dataForm.get("sets"),
-    reps: dataForm.get("reps"),
-  };
+  const weight = dataForm.get("weight");
+  const sets = dataForm.get("sets");
+  const reps = dataForm.get("reps");
 
-  //Variables to add the new exercise
-  const divNewExercise = document.createElement("div");
-  divNewExercise.classList.add("exercise");
+  if (formExercise.dataset.editing == "true") {
+    const exercise = formExercise.currentExercise;
 
-  const pen = document.createElement("i");
-  pen.classList.add("fa-solid","fa-pen");
+    exercise.dataset.name = name;
+    exercise.dataset.weight = weight;
+    exercise.dataset.sets = sets;
+    exercise.dataset.reps = reps;
 
-  const exerciseInfo = document.createElement("p");
-  exerciseInfo.textContent = `${dataExercises.name} ${dataExercises.weight} kg ${dataExercises.sets} x ${dataExercises.reps}`;
+    exercise.querySelector("p").textContent =
+      `${name} ${weight} kg ${sets} x ${reps}`;
 
-  divNewExercise.appendChild(exerciseInfo);
-  divNewExercise.appendChild(pen);
-
-  if (currentListExercise) {
-    currentListExercise.appendChild(divNewExercise);
+    delete formExercise.dataset.editing;
+    formExercise.currentExercise = null;
 
     e.target.reset();
     modal.style.display = "none";
   } else {
-    alert("The list of current exercises could not be found");
+    //If it is a new exercise
+    //Variables to add the new exercise
+    const divNewExercise = document.createElement("div");
+    divNewExercise.classList.add("exercise");
+
+    //Storing values
+    divNewExercise.dataset.name = name;
+    divNewExercise.dataset.weight = weight;
+    divNewExercise.dataset.sets = sets;
+    divNewExercise.dataset.reps = reps;
+
+    const exerciseInfo = document.createElement("p");
+    exerciseInfo.textContent = `${name} ${weight} kg ${sets} x ${reps}`;
+
+    const pen = document.createElement("i");
+    pen.classList.add("fa-solid", "fa-pen");
+
+    pen.addEventListener("click", () => {
+      modal.style.display = "flex";
+
+      //Current values
+      formExercise.exercise.value = divNewExercise.dataset.name;
+      formExercise.weight.value = divNewExercise.dataset.weight;
+      formExercise.sets.value = divNewExercise.dataset.sets;
+      formExercise.reps.value = divNewExercise.dataset.reps;
+
+      //Save if an exercise is editing
+      formExercise.dataset.editing = "true";
+      formExercise.currentExercise = divNewExercise;
+    });
+
+    divNewExercise.appendChild(exerciseInfo);
+    divNewExercise.appendChild(pen);
+
+    if (currentListExercise) {
+      currentListExercise.appendChild(divNewExercise);
+
+      e.target.reset();
+      modal.style.display = "none";
+    } else {
+      alert("The list of current exercises could not be found");
+    }
   }
 });

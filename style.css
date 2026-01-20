@@ -193,3 +193,7 @@ main {
   text-align: center;
   height: 35px;
 }
+
+.exercise .fa-pen{
+  cursor: pointer;
+}
