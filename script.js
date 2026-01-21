@@ -68,10 +68,17 @@ formExercise.addEventListener("submit", (e) => {
     divNewExercise.dataset.reps = reps;
 
     const exerciseInfo = document.createElement("p");
-    exerciseInfo.textContent = `${name} ${weight} kg ${sets} x ${reps}`;
+    exerciseInfo.classList.add("exercise-info");
+    exerciseInfo.innerHTML = `${name} ${weight} kg ${sets} <span>x</span> ${reps}`;
 
     const pen = document.createElement("i");
     pen.classList.add("fa-solid", "fa-pen");
+
+    const xMark = document.createElement("i");
+    xMark.classList.add("fa-solid", "fa-x");
+
+    const divIcons = document.createElement("div");
+    divIcons.classList.add("div-icons");
 
     pen.addEventListener("click", () => {
       modal.style.display = "flex";
@@ -87,8 +94,15 @@ formExercise.addEventListener("submit", (e) => {
       formExercise.currentExercise = divNewExercise;
     });
 
+    xMark.addEventListener("click", (e) => {
+      e.target.closest(".exercise").remove();
+    });
+
+    divIcons.appendChild(pen);
+    divIcons.appendChild(xMark);
+
     divNewExercise.appendChild(exerciseInfo);
-    divNewExercise.appendChild(pen);
+    divNewExercise.appendChild(divIcons);
 
     if (currentListExercise) {
       currentListExercise.appendChild(divNewExercise);

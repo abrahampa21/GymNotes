@@ -88,14 +88,6 @@ main {
   justify-self: center;
 }
 
-.exercise {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 7px; 
-  margin: 10px 0;
-}
-
 .btn-add {
   background-color: var(--primary-color);
   color: white;
@@ -194,6 +186,45 @@ main {
   height: 35px;
 }
 
+.exercise {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7px; 
+  margin: 10px 0;
+}
+
+.exercise .div-icons{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
 .exercise .fa-pen{
   cursor: pointer;
+  background-color: rgb(26, 202, 26);
+  padding: 7px;
+  border-radius: 100%;
+  font-size: 12px;
+  color: #fff;
+}
+
+.exercise .fa-x{
+  cursor: pointer;
+  background-color: rgb(155, 22, 22);
+  padding: 7px 9px;
+  border-radius: 100%;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.exercise .exercise-info{
+  font-size: 15px;
+  font-family: sans-serif;
+}
+
+.exercise-info span{
+  font-weight: bold;
 }
