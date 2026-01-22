@@ -1,5 +1,9 @@
-const {app, BrowserWindow} = require("electron");
+const {app, BrowserWindow, ipcMain} = require("electron");
 const path = require("path");
+const Store = require("electron-store");
+
+//Initialize electron store
+const store = new Store();
 
 //To run electron-reload
 if(!app.isPackaged){
@@ -17,7 +21,8 @@ function createWindow() {
         frame: false,
         transparent: false,
         webPreferences: {
-             contextIsolation: true
+             contextIsolation: true,
+             preload: path.join(__dirname, "preload.js")
         },
         icon: path.join(__dirname, "src/icon.png")
     });
@@ -29,4 +34,14 @@ app.whenReady().then(createWindow);
 
 app.on("window-all-closed", () => {
     if(process.platform !== "darwin") app.quit();
+})
+
+//Store and charging data
+
+ipcMain.handle("save-exercises", (event, exercises) => {
+    store.set("exercises",exercises);
+})
+
+ipcMain.handle("load-exercises", () => {
+    return store.get("exercises", [])
 })

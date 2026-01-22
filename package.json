@@ -1,12 +1,33 @@
 {
   "name": "gymnotes",
   "version": "1.0.0",
+  "description": "Gym routines app",
   "main": "main.js",
+  "author": "Abraham Pech",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.abraham.gymnotes",
+    "productName": "GymNotes",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "src/icon.ico"
+    }
   },
   "devDependencies": {
-    "electron": "^39.2.7",
+    "electron": "^39.3.0",
+    "electron-builder": "^26.4.0",
     "electron-reload": "^2.0.0-alpha.1"
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0"
   }
 }
