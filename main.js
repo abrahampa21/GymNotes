@@ -1,4 +1,4 @@
-const {app, BrowserWindow, ipcMain} = require("electron");
+const {app, BrowserWindow, ipcMain, Menu} = require("electron");
 const path = require("path");
 const Store = require("electron-store");
 
@@ -18,7 +18,6 @@ function createWindow() {
         resizable: false,
         maximizable: false,
         fullscreenable: false,
-        frame: false,
         transparent: false,
         webPreferences: {
              contextIsolation: true,
@@ -27,6 +26,7 @@ function createWindow() {
         icon: path.join(__dirname, "src/icon.png")
     });
 
+    Menu.setApplicationMenu(null);
     window.loadFile("index.html");
 }
 
