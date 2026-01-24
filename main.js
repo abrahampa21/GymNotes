@@ -13,7 +13,7 @@ if(!app.isPackaged){
 //Function to create the window and its properties
 function createWindow() {
     const window = new BrowserWindow({
-        width: 800,
+        width: 850,
         height: 650,
         resizable: false,
         maximizable: false,
